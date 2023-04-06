@@ -1,17 +1,11 @@
 import styled from '@emotion/styled';
-import {
-  AppBar, Box, Button, Toolbar, Typography,
-} from '@mui/material';
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 
 function HomeHeader() {
   const navigate = useNavigate();
-  const NavBar = styled(Box)({
-    display: 'flex',
-    gap: 30,
-  });
   const StyledToolbar = styled(Toolbar)({
     display: 'flex',
     justifyContent: 'space-around',

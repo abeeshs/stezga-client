@@ -21,12 +21,8 @@ function Header() {
   const userDetails = JSON.parse(localStorage.getItem('user'));
   const user = userDetails?.user;
   const navigate = useNavigate();
-  const [tableType, setTableType] = useState('');
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const tableHandle = (type) => {
-    setTableType(type);
-  };
   const signOutHandler = async () => {
     const res = await authService.userLogout();
     if (res) {
@@ -233,7 +229,6 @@ function Header() {
                 <NotificationsNoneIcon sx={{ color: 'grey', m: 1, mr: 1 }} />
               </div>
               <div className="menu-container">
-                <div className="menu-trigger"></div>
                 <div
                   className={`dropdown-menu ${open ? 'active' : 'inactive'}`}
                 >
