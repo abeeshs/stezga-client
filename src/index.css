@@ -1,0 +1,345 @@
+.login-btn {
+	background-color: rgba(0, 0, 0, 0.803) !important;
+}
+.login-btn:hover {
+	background-color: black !important;
+	color: white;
+}
+
+div[data-testid='otp-input-root'] input {
+	border: none;
+	border-bottom: 4px solid black;
+	font-weight: 600;
+}
+
+div[data-testid='otp-input-root'] input:focus {
+	border: none;
+	outline: none;
+	border-bottom: 4px solid green;
+}
+.validation-error {
+	animation: vibrateError 0.6s ease-in-out forwards;
+}
+.validation-error input {
+	text-decoration-color: red;
+	color: red;
+	border: none;
+}
+
+@keyframes vibrateError {
+	0% {
+		transform: translateX(0px);
+	}
+	25% {
+		transform: translateX(10px);
+	}
+	50% {
+		transform: translateX(-20px);
+	}
+	75% {
+		transform: translateX(20px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
+
+.dropdown-menu {
+	position: absolute;
+	z-index: 2;
+	top: 76px;
+	right: 21px;
+	background-color: #fff;
+	border: 1px solid rgba(128, 128, 128, 0.708);
+	border-radius: 5px;
+	padding: 30px 10px;
+	width: 292px;
+	color: black;
+	transition-property: height;
+}
+.dropdown-menu ::before {
+	content: '';
+	position: absolute;
+	top: -18px;
+	right: 28px;
+	height: 60px;
+	width: 20px;
+	transform: rotate(45deg);
+	background-color: #fff;
+	border-top: 1px solid rgba(128, 128, 128, 0.515);
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+}
+.dropdown-menu.active {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition: 0.5s ease;
+}
+.dropdown-menu.inactive {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-20px);
+	transition: 0.5s ease;
+}
+.dropdown-menu ul li {
+	display: flex;
+	align-items: center;
+	padding-left: 2px;
+	list-style-type: none;
+	padding: 15px 2px;
+	border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+	font-size: 15px;
+	font-weight: 500;
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+	color: #33475b;
+}
+.dropdown-menu ul li:hover {
+	color: red;
+	cursor: pointer;
+}
+.dropdown-menu ul li p {
+	margin-left: 7px;
+}
+.dropdownItem {
+	display: flex;
+	margin: 10px auto;
+}
+.dropdown-menu h3 {
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(124, 152, 182);
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+	line-height: 1.2rem;
+}
+.profile-image {
+	display: flex;
+	border-bottom: 1px solid grey;
+}
+.logout {
+	cursor: pointer;
+	color: #0091ae;
+}
+.logout:hover {
+	color: #33475b;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+	min-width: 550px !important;
+}
+/* div [data-rbd-draggable-id="item 1"]{
+	background-color:rgb(201, 230, 249);
+	height: 80px;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	border:1px solid rgba(19, 40, 48, 0.314)
+	
+} */
+.page-heading {
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+	font-size: 19px;
+	font-weight: 600;
+	color: rgb(0, 145, 174);
+}
+
+.commen-font {
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+}
+.deal-btn {
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+	text-transform: capitalize !important;
+}
+.meeting-btn {
+	font-family: var(
+		--uicomponents-font-family,
+		'Avenir Next W02',
+		'Lexend Deca',
+		Helvetica,
+		Arial,
+		sans-serif
+	);
+	text-transform: capitalize !important;
+	background-color: rgb(0, 145, 174) !important;
+}
+.meet-stage {
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	color: #33475b;
+	font-weight: 500;
+	font-size: 11px;
+}
+.input-label-f {
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	color: #33475b;
+}
+/* meeting stage */
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+	color: #0091ae !important;
+}
+
+/* conversation page */
+
+.sub-heading {
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	color: #0091ae;
+	font-size: 16px;
+	font-weight: 600;
+}
+.chat-body {
+	max-height: 400px;
+	overflow-y: auto;
+	background-color: #eaf0f6;
+	width: 100%;
+	height: 400px;
+}
+/* .chat-footer{
+	width: 100%;
+	height: 100%;
+} */
+.chat-footer-head {
+	width: 100%;
+	height: 40px;
+	border: 1px solid rgb(223, 227, 235);
+}
+.dark-heading {
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	color: #33475b;
+	font-size: 16px;
+	font-weight: 600;
+}
+.messages {
+	padding: 1rem;
+	background: #f7f7f7;
+	flex-shrink: 2;
+	overflow-y: auto;
+	box-shadow: inset 0 2rem 2rem -2rem rgba(0, 0, 0, 0.05),
+		inset 0 -2rem 2rem -2rem rgba(0, 0, 0, 0.05);
+	height: 68%;
+}
+.messages::-webkit-scrollbar {
+	display: none;
+}
+
+.messages .time {
+	font-size: 0.8rem;
+	background: #eee;
+	padding: 0.25rem 1rem;
+	border-radius: 2rem;
+	color: #999;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	margin: 0 auto;
+}
+.messages .message.parker {
+	margin: 1rem 1rem 1rem auto;
+	border-radius: 1.125rem 1.125rem 0 1.125rem;
+	background: #333;
+	color: white;
+}
+.messages .message {
+	box-sizing: border-box;
+	padding: 0.5rem 1rem;
+	margin: 1rem;
+	background: #fff;
+	border-radius: 1.125rem 1.125rem 1.125rem 0;
+	min-height: 2.25rem;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	max-width: 66%;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
+}
+.contact-info {
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: #516f90;
+	padding: 15px;
+}
+.contact-info p {
+	font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: black;
+	padding-left: 2px;
+}
+
+.mychat-select {
+	width: '100%';
+	background-color: grey;
+	box-sizing: 'border-box';
+	border: '1px solid rgb(223, 227, 235)';
+	border-radius: '5px';
+	text-align: 'center';
+}
+.basic-font-all {
+	font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+		Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+		'Noto Color Emoji';
+}
+.table-detailview td {
+	width: 380px;
+	height: 65px;
+	font-family: OpenSans-Regular, Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: black;
+	font-weight: 600;
+}
+.dview-label {
+	color: #616161 !important;
+	font-weight: 500 !important;
+}
+.profile-input {
+	width: 280px;
+	height: 50px;
+	border: #eaf0f6;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

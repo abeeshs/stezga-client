@@ -1,0 +1,29 @@
+.css-1jbbcbn-MuiDataGrid-columnHeaderTitle {
+	font-weight: 700 !important;
+	font-size: 15px !important;
+}
+.create-task-btn {
+	color: white;
+	background-color: rgba(255, 68, 0, 0.734) !important;
+	float: right;
+}
+
+
+.outlined-basic1{
+    width: 500px;
+}
+.note{
+    width:500px;
+    height: 150px ;
+
+}
+div[class="MuiInputBase-root"] fieldset legend span {
+z-index: 0 !important;
+background-color: #000 !important;
+}
+.close-btn{
+	background-color: rgba(189, 57, 57, 0.648) !important;
+	width:'30px';
+	height:'2rem';
+	
+}

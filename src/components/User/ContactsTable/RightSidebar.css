@@ -1,0 +1,14 @@
+.button-color{
+    color: white;
+	background: rgb(0, 0, 0) !important;
+	/* background: linear-gradient(
+		180deg,
+		rgba(178, 23, 198, 1) 0%,
+		rgba(123, 0, 255, 1) 32%,
+		rgba(123, 0, 255, 1) 100%
+	) !important */
+}
+.label{
+    padding-left:10px;
+    margin-left: 10px;
+}

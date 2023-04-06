@@ -1,0 +1,16 @@
+.model-form-body {
+	width: 600px;
+}
+
+.input-input-box{
+  height: 40px;
+  padding: 6px;
+  margin-top: 10px;
+
+}
+.label-stl {
+	text-align: right !important;
+	padding: 19px !important;
+	color: #1c2121 !important;
+	font-size: 14px !important;
+}

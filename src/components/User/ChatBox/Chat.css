@@ -1,0 +1,47 @@
+.r-time {
+	font-size: 0.8rem;
+	color: #999;
+	float: right;
+	margin-top: -15px;
+}
+.l-time {
+	font-size: 0.8rem;
+	color: #999;
+	float: left;
+}
+.userdp {
+	padding-top: 20px;
+}
+.msg-contend {
+	display: flex;
+}
+.message parker {
+}
+.message stark {
+    padding-top: 20px;
+    background-color: yellow;
+    
+}
+
+.messages .typing {
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	margin-right: 0rem;
+	box-sizing: border-box;
+	background: #ccc;
+	border-radius: 50%;
+    
+}
+.messages .typing.typing-1 {
+	-webkit-animation: typing 3s infinite;
+	animation: typing 3s infinite;
+}
+.messages .typing.typing-2 {
+	-webkit-animation: typing 3s 250ms infinite;
+	animation: typing 3s 250ms infinite;
+}
+.messages .typing.typing-3 {
+	-webkit-animation: typing 3s 500ms infinite;
+	animation: typing 3s 500ms infinite;
+}
