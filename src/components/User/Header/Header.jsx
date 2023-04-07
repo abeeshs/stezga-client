@@ -23,11 +23,16 @@ function Header() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
   const signOutHandler = async () => {
-    const res = await authService.userLogout();
-    if (res) {
-      dispatch(deleteUserToken());
-      navigate('/login');
+    try {
+      const res = await authService.userLogout();
+      if (res) {
+        dispatch(deleteUserToken());
+        navigate('/login');
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

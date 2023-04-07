@@ -21,7 +21,8 @@ const theme = createTheme();
 export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { token } = useSelector((state) => state.userAuth);
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = user?.token;
 
   useEffect(() => {
     if (token) {
@@ -63,7 +64,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container ba>
+      <Container>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -150,8 +151,7 @@ export default function SignIn() {
                     padding: '0 10px',
                   }}
                 >
-                  or
-					{' '}
+                  or{' '}
                 </span>
               </div>
             </Box>

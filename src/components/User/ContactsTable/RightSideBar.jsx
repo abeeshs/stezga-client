@@ -50,20 +50,20 @@ function RightSideBar({ getAllContacts, users }) {
     resolver: yupResolver(schema),
   });
 
-  const [state, setState] = React.useState({ right: false });
+  const [state, setState] = React.useState(false);
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const toggleDrawer = (anchor, open) => async (event) => {
+  const toggleDrawer = (open) => async (event) => {
     if (
-      event
-      && event.type === 'keydown'
-      && (event.key === 'Tab' || event.key === 'Shift')
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setState(open);
 
     getAllContacts();
   };
@@ -172,7 +172,9 @@ function RightSideBar({ getAllContacts, users }) {
                 <em>None</em>
               </MenuItem>
               {users.map((user) => (
-                <MenuItem key={user._id} value={user._id}>{user?.username}</MenuItem>
+                <MenuItem key={user._id} value={user._id}>
+                  {user?.username}
+                </MenuItem>
               ))}
             </Select>
 
@@ -269,11 +271,7 @@ function RightSideBar({ getAllContacts, users }) {
       >
         Create
       </Button>
-      <SwipeableDrawer
-        anchor="right"
-        open={state['right']}
-        onOpen={toggleDrawer('right', true)}
-      >
+      <SwipeableDrawer anchor="right" open={state} onOpen={toggleDrawer(true)}>
         {list('right')}
       </SwipeableDrawer>
     </>
