@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  Typography,
-} from '@mui/material';
+import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import ContactsTable from '../../components/User/ContactsTable/ContactsTable';
@@ -19,30 +17,8 @@ function Contacts() {
     }
   }, []);
 
-  // right sidebar
-  // function List({ anchor }) {
-  //   return (
-  //     <Box
-  //       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-  //       role="presentation"
-  //     >
-  //       <List>
-  //         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
-  //           <ListItem key={text} disablePadding>
-  //             <ListItemButton>
-  //               <ListItemIcon></ListItemIcon>
-  //               <ListItemText primary={text} />
-  //             </ListItemButton>
-  //           </ListItem>
-  //         ))}
-  //       </List>
-  //       <Divider />
-  //     </Box>
-  //   );
-  // }
-
   return (
-    <div>
+    <>
       <Header />
       <Container maxWidth="xl">
         <Typography component="div" variant="h6" marginTop="10px">
@@ -50,7 +26,7 @@ function Contacts() {
         </Typography>
         <ContactsTable />
       </Container>
-    </div>
+    </>
   );
 }
 

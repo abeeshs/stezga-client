@@ -7,13 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import dayjs from 'dayjs';
+import { Box } from '@mui/material';
 import * as contactService from '../../../services/contactService';
 import RightSideBar from './RightSideBar';
 import Notification from '../../Extra Components/Notification';
 import * as userService from '../../../services/userService';
 import SingleViewModal from '../../Extra Components/SingleViewModal/SingleViewModal';
 import ViewContact from '../ViewContact/ViewContact';
-import { Box } from '@mui/system';
 
 export default function ContactsTable() {
   const [rows, setRows] = useState([]);
@@ -35,7 +35,6 @@ export default function ContactsTable() {
   };
 
   const handleClick = (item) => {
-    console.log('object', item);
     setSelectedContact(item);
     setSingleView(true);
   };

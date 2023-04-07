@@ -56,9 +56,9 @@ function RightSideBar({ getAllContacts, users }) {
 
   const toggleDrawer = (anchor, open) => async (event) => {
     if (
-      event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event
+      && event.type === 'keydown'
+      && (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
@@ -172,7 +172,7 @@ function RightSideBar({ getAllContacts, users }) {
                 <em>None</em>
               </MenuItem>
               {users.map((user) => (
-                <MenuItem value={user._id}>{user?.username}</MenuItem>
+                <MenuItem key={user._id} value={user._id}>{user?.username}</MenuItem>
               ))}
             </Select>
 

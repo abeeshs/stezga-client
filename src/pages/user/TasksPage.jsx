@@ -8,8 +8,6 @@ import * as contactService from '../../services/contactService';
 import * as userService from '../../services/userService';
 import Header from '../../components/User/Header/Header';
 import AddTaskForm from '../../components/User/Forms/AddTaskForm/AddTaskForm';
-import SingleViewModal from '../../components/Extra Components/SingleViewModal/SingleViewModal';
-import ViewTask from '../../components/User/ViewTask/ViewTask';
 
 function TasksPage() {
   const [userTask, setUserTask] = useState([]);
@@ -123,7 +121,6 @@ function TasksPage() {
         getContacts={getContacts}
         getTask={getTask}
       />
-      
     </Box>
   );
 }
