@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 import * as chatService from '../../../services/chatService';
 import './Chat.css';
 
-const ENDPOINT = 'http://localhost:8000';
+const ENDPOINT = process.env.REACT_APP_SERVER_URL;
 let socket;
 let selectedChatCompare;
 
