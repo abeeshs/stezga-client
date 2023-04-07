@@ -10,7 +10,6 @@ import dayjs from 'dayjs';
 import { Box } from '@mui/material';
 import * as contactService from '../../../services/contactService';
 import RightSideBar from './RightSideBar';
-import Notification from '../../Extra Components/Notification';
 import * as userService from '../../../services/userService';
 import SingleViewModal from '../../Extra Components/SingleViewModal/SingleViewModal';
 import ViewContact from '../ViewContact/ViewContact';
@@ -18,11 +17,6 @@ import Progress from '../../Extra Components/Progress/Progress';
 
 export default function ContactsTable() {
   const [rows, setRows] = useState([]);
-  const [notify, setNotify] = useState({
-    isOpen: false,
-    message: '',
-    type: '',
-  });
   const [users, setUsers] = useState([]);
   const [selectedContact, setSelectedContact] = useState({});
   const [singleView, setSingleView] = useState(false);
@@ -33,7 +27,10 @@ export default function ContactsTable() {
 
   const getAllUsers = async () => {
     const userlist = await userService.viwAllusers(token);
-    setUsers(userlist.users);
+    console.log(userlist);
+    if (userlist?.status === 'Success') {
+      setUsers(userlist.users);
+    }
   };
 
   const handleClick = (item) => {
@@ -54,24 +51,14 @@ export default function ContactsTable() {
       console.log(err);
     }
   };
+  console.log(users);
   useEffect(() => {
     getAllUsers();
     getAllcontacts();
   }, []);
 
   if (isLoading) {
-    return (
-      <Box
-        sx={{
-          height: '70vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Progress />
-      </Box>
-    );
+    return <Progress />;
   } else {
     return (
       <>
@@ -167,7 +154,6 @@ export default function ContactsTable() {
           </Box>
         )}
 
-        <Notification notify={notify} setNotify={setNotify} />
         <SingleViewModal singleView={singleView} setSingleView={setSingleView}>
           <ViewContact
             singleView={singleView}

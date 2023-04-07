@@ -50,22 +50,22 @@ function RightSideBar({ getAllContacts, users }) {
     resolver: yupResolver(schema),
   });
 
-  const [state, setState] = React.useState(false);
+  const [state, setState] = React.useState({ right: false });
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const toggleDrawer = (open) => async (event) => {
+  const toggleDrawer = (anchor, open) => async (event) => {
     if (
-      event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event
+      && event.type === 'keydown'
+      && (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
 
-    setState(open);
+    setState({ ...state, [anchor]: open });
 
-    // getAllContacts();
+    getAllContacts();
   };
 
   // form on submit function
@@ -98,8 +98,8 @@ function RightSideBar({ getAllContacts, users }) {
             Create Contact
           </Typography>
           <CloseIcon
-            onClick={setState(false)}
-            onKeyDown={setState(false)}
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
             sx={{ color: 'white', right: '0', fontSize: '30px' }}
           />
         </Stack>
@@ -172,9 +172,7 @@ function RightSideBar({ getAllContacts, users }) {
                 <em>None</em>
               </MenuItem>
               {users.map((user) => (
-                <MenuItem key={user._id} value={user._id}>
-                  {user?.username}
-                </MenuItem>
+                <MenuItem key={user._id} value={user._id}>{user?.username}</MenuItem>
               ))}
             </Select>
 
@@ -267,11 +265,15 @@ function RightSideBar({ getAllContacts, users }) {
         sx={{ float: 'right', marginBottom: '20px' }}
         className="button-color"
         variant="contained"
-        onClick={toggleDrawer(true)}
+        onClick={toggleDrawer('right', true)}
       >
         Create
       </Button>
-      <SwipeableDrawer anchor="right" open={state} onOpen={toggleDrawer(true)}>
+      <SwipeableDrawer
+        anchor="right"
+        open={state['right']}
+        onOpen={toggleDrawer('right', true)}
+      >
         {list('right')}
       </SwipeableDrawer>
     </>

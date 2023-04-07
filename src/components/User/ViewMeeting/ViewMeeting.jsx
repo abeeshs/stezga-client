@@ -13,6 +13,7 @@ import EditMeeting from '../Forms/EditMeeting/EditMeeting';
 import DeleteModal from '../../Extra Components/DeleteModal';
 import Popup from '../Popup/Popup';
 import * as meetingService from '../../../services/meetingService';
+import dayjs from 'dayjs';
 
 export default function ViewMeeting({
   selectedMeeting,
@@ -122,6 +123,11 @@ export default function ViewMeeting({
               <span style={{ color: 'red' }}>*</span>
             </label>
             <span>{selectedMeeting.end_date}</span>
+            {dayjs(selectedMeeting.end_date) < new Date() ? (
+              <span style={{ color: 'green' }}>Meeting Over</span>
+            ) : (
+              ''
+            )}
           </Box>
           <Box className="header-in">
             <label>
@@ -159,12 +165,27 @@ export default function ViewMeeting({
             </p>
           </Box>
           <Box className="m-activities">
-            <Box sx={{ width: '50%', height: ' 225px' }}>
-              <img
-                src="https://stezga.od2.vtiger.com/layouts/v9/assets/images/Notifications_NoRecords.svg"
-                alt=""
-              />
-            </Box>
+            {dayjs(selectedMeeting.end_date) < new Date() ? (
+              <Box sx={{ height: '50px' }}>
+                <p
+                  className="only-font"
+                  style={{
+                    paddingLeft: '15px',
+                    fontWeight: '500',
+                    fontSize: '16px',
+                  }}
+                >
+                 Meeting Over on {selectedMeeting.end_date}
+                </p>
+              </Box>
+            ) : (
+              <Box sx={{ width: '50%', height: ' 225px' }}>
+                <img
+                  src="https://stezga.od2.vtiger.com/layouts/v9/assets/images/Notifications_NoRecords.svg"
+                  alt=""
+                />
+              </Box>
+            )}
           </Box>
         </Box>
       </Box>

@@ -284,8 +284,8 @@ function Deals() {
                 overflowX: 'scroll',
               }}
             >
-              {Object.values(columns).map((col) => (
-                <Column col={col} key={col.id} />
+              {Object.values(columns).map((col,i) => (
+                <Column col={col} key={col.id+i} />
               ))}
             </div>
           </div>

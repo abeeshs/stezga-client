@@ -14,8 +14,9 @@ function TasksPage() {
   const [open, setOpen] = useState(false);
   const [users, setUsers] = useState([]);
   const [allContacts, setAllContacts] = useState([]);
-
-  const { token } = useSelector((state) => state.userAuth);
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const token = userData?.token;
+  const user = userData?.user;
 
   const getTask = async () => {
     const response = await taskService.getUserTask(token);
@@ -77,6 +78,7 @@ function TasksPage() {
         <Box sx={{ padding: '55px' }}>
           <p className="page-heading">Tasks</p>
         </Box>
+
         <Box
           sx={{
             width: '150px',
@@ -84,9 +86,17 @@ function TasksPage() {
             marginRight: '25px',
           }}
         >
-          <Button sx={boxSX} variant="contained" onClick={() => setOpen(true)}>
-            Create Task
-          </Button>
+          {user?.user_type === 'owner' ? (
+            <Button
+              sx={boxSX}
+              variant="contained"
+              onClick={() => setOpen(true)}
+            >
+              Create Task
+            </Button>
+          ) : (
+            ''
+          )}
         </Box>
       </Box>
 
@@ -94,11 +104,14 @@ function TasksPage() {
         {userTask?.length > 0 ? (
           <TaskTable userTask={userTask} />
         ) : (
-          <div
-            style={{
+          <Box
+            sx={{
               display: 'flex',
               justifyContent: 'space-evenly',
               alignItems: 'center',
+              backgroundColor: 'white',
+              height: '100%',
+              width: '100%',
             }}
           >
             <img
@@ -109,7 +122,7 @@ function TasksPage() {
             <h2 className="commen-font" style={{ fontWeight: '800' }}>
               No tasks yet
             </h2>
-          </div>
+          </Box>
         )}
       </Container>
 

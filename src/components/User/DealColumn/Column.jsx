@@ -4,6 +4,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import Item from './Item';
 
 function Column({ col: { list, id, name, data } }) {
+  console.log(id, name, data)
   let total = 0;
   return (
     <Droppable droppableId={id}>
