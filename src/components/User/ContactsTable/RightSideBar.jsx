@@ -65,7 +65,7 @@ function RightSideBar({ getAllContacts, users }) {
 
     setState(open);
 
-    getAllContacts();
+    // getAllContacts();
   };
 
   // form on submit function
@@ -98,8 +98,8 @@ function RightSideBar({ getAllContacts, users }) {
             Create Contact
           </Typography>
           <CloseIcon
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+            onClick={setState(false)}
+            onKeyDown={setState(false)}
             sx={{ color: 'white', right: '0', fontSize: '30px' }}
           />
         </Stack>
@@ -267,7 +267,7 @@ function RightSideBar({ getAllContacts, users }) {
         sx={{ float: 'right', marginBottom: '20px' }}
         className="button-color"
         variant="contained"
-        onClick={toggleDrawer('right', true)}
+        onClick={toggleDrawer(true)}
       >
         Create
       </Button>
