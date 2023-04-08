@@ -115,7 +115,6 @@ function UsersPage() {
   const { TblContainer, TblHead, TblPagination, recordAfterPagingAndSorting } =
     UseTable(users, headCells, filterFn);
   const handleSearch = (e) => {
-    console.log(e);
     const target = e.target;
     setFilterFn({
       fn: (items) => {

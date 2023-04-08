@@ -52,7 +52,6 @@ function InviteLogin() {
     try {
       if (data) {
         const response = await userService.allowNewUserService(data);
-        console.log(response);
         if (response?.status === 'Success') {
           dispatch(
             setUserToken({ token: response.token, user: response.user })

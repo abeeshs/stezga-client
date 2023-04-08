@@ -36,7 +36,6 @@ function Chat({
     socket.on('typing', () => setIsTyping(true));
     socket.on('stop typing', () => setIsTyping(false));
   }, []);
-  console.log(selectedChat);
   const getAllMessages = async () => {
     try {
       setLoading(true);
@@ -116,7 +115,6 @@ function Chat({
     });
   });
   const getSender = (loggedUser1, users) => {
-    console.log(loggedUser1, users);
     return users[0]._id === loggedUser1._id
       ? users[1].username
       : users[0].username;

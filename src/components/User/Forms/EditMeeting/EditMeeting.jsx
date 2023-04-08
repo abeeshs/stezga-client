@@ -32,7 +32,6 @@ function EditMeeting({
     value: item.memberId._id,
     label: item.member,
   }));
-  console.log(part);
   const { token } = JSON.parse(localStorage.getItem('user'));
   const animatedComponents = makeAnimated();
   const [start, setStart] = useState(dayjs(selectedMeeting?.start_date));

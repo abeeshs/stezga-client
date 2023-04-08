@@ -48,7 +48,6 @@ function MeetingForm({ users, setOpenPopup, getMeetings }) {
         return setError('Select a valid date');
       }
       if (!participands || participands.length < 1) {
-        console.log('participands error');
         return setError('Please select participands');
       }
       setError('');

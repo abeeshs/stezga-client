@@ -138,9 +138,7 @@ export const adminLogin = async (data) => {
 // ----------------------------- User login ---------------------
 export const userLogin = async (data) => {
   try {
-    console.log(process.env.REACT_APP_SERVER_URL)
     const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}`, data);
-    console.log(res);
     return res.data;
   } catch (error) {
     const message =
@@ -212,7 +210,6 @@ export const userVerifyOTP = async (otp, email) => {
     );
     return res.data;
   } catch (err) {
-    console.log(err.response.data);
     return err.response.data;
   }
 };

@@ -131,7 +131,6 @@ export const deleteTaskAdmin = async (token, taskId) => {
 export const verifyTask = async (taskId) => {
   try {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    console.log(token);
     const res = await axios.put(
       `${process.env.REACT_APP_SERVER_URL}/task/task-verify/${taskId}`,
       {},
@@ -206,7 +205,6 @@ export const getTaskFile = async (filename) => {
         headers: { Authorization: `Bearer ${token}` },
       },
     );
-    console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);

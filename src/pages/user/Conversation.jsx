@@ -48,7 +48,6 @@ function Conversation() {
   useEffect(() => {
     getAllChats();
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     setLoggedUser(user.user);
   }, []);
 
@@ -80,7 +79,7 @@ function Conversation() {
   const accessChat = async (userId) => {
     try {
       const response = await chatService.createChatService(userId);
-      console.log(response);
+     
       if (response.status === 'success') {
         if (!chats.find((c) => c._id === response.createdChat._id)) {
           setSelectedChat(response.createdChat);
@@ -95,7 +94,7 @@ function Conversation() {
     }
   };
   const getSender = (loggedUser1, users) => {
-    console.log(loggedUser1, users);
+
     return users[0]._id === loggedUser1._id
       ? users[1].username
       : users[0].username;

@@ -27,7 +27,7 @@ export default function ContactsTable() {
 
   const getAllUsers = async () => {
     const userlist = await userService.viwAllusers(token);
-    console.log(userlist);
+    
     if (userlist?.status === 'Success') {
       setUsers(userlist.users);
     }
@@ -51,119 +51,115 @@ export default function ContactsTable() {
       console.log(err);
     }
   };
-  console.log(users);
+
   useEffect(() => {
     getAllUsers();
     getAllcontacts();
   }, []);
 
-  if (isLoading) {
-    return <Progress />;
-  } else {
-    return (
-      <>
-        <RightSideBar users={users} getAllContacts={getAllcontacts} />
-        {rows.length > 0 ? (
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableHead
-                sx={{
-                  backgroundColor: 'black',
-                  fontWeight: '900',
-                }}
-              >
-                <TableRow>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                  >
-                    SL NO
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                  >
-                    NAME
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                    align="center"
-                  >
-                    EMAIL
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                    align="right"
-                  >
-                    PHONE NUMBER
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                    align="right"
-                  >
-                    CONTACT OWNER
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
-                    align="right"
-                  >
-                    CREATED AT
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row, index) => (
-                  <TableRow
-                    key={row.firstname}
-                    onClick={() => handleClick(row)}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell>{index + 1}</TableCell>
-                    <TableCell component="th" scope="row">
-                      {row.firstname}
-                    </TableCell>
-                    <TableCell align="center">{row.email}</TableCell>
-                    <TableCell align="right">{row.mobile}</TableCell>
-                    <TableCell align="right">
-                      {row.contact_owner?.username}
-                    </TableCell>
-                    <TableCell align="right">
-                      {dayjs(row.createdAt).format('DD/MM/YYYY')}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        ) : (
-          <Box sx={{ widht: '100%', height: '600px' }}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-evenly',
-                alignItems: 'center',
+  return (
+    <>
+      <RightSideBar users={users} getAllContacts={getAllcontacts} />
+      {rows.length > 0 ? (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead
+              sx={{
+                backgroundColor: 'black',
+                fontWeight: '900',
               }}
             >
-              <img
-                src="/images/empty.jpg"
-                style={{ width: '400px', height: '400px' }}
-                alt=""
-              />
-              <h2 className="commen-font" style={{ fontWeight: '800' }}>
-                No Contacts yet
-              </h2>
-            </div>
-          </Box>
-        )}
+              <TableRow>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                >
+                  SL NO
+                </TableCell>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                >
+                  NAME
+                </TableCell>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                  align="center"
+                >
+                  EMAIL
+                </TableCell>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                  align="right"
+                >
+                  PHONE NUMBER
+                </TableCell>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                  align="right"
+                >
+                  CONTACT OWNER
+                </TableCell>
+                <TableCell
+                  sx={{ fontSize: '15PX', fontWeight: '500', color: 'white' }}
+                  align="right"
+                >
+                  CREATED AT
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row, index) => (
+                <TableRow
+                  key={row.firstname}
+                  onClick={() => handleClick(row)}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell>{index + 1}</TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.firstname}
+                  </TableCell>
+                  <TableCell align="center">{row.email}</TableCell>
+                  <TableCell align="right">{row.mobile}</TableCell>
+                  <TableCell align="right">
+                    {row.contact_owner?.username}
+                  </TableCell>
+                  <TableCell align="right">
+                    {dayjs(row.createdAt).format('DD/MM/YYYY')}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <Box sx={{ widht: '100%', height: '600px' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src="/images/empty.jpg"
+              style={{ width: '400px', height: '400px' }}
+              alt=""
+            />
+            <h2 className="commen-font" style={{ fontWeight: '800' }}>
+              No Contacts yet
+            </h2>
+          </div>
+        </Box>
+      )}
 
-        <SingleViewModal singleView={singleView} setSingleView={setSingleView}>
-          <ViewContact
-            singleView={singleView}
-            setSingleView={setSingleView}
-            selectedContact={selectedContact}
-            users={users}
-            getAllcontacts={getAllcontacts}
-          />
-        </SingleViewModal>
-      </>
-    );
-  }
+      <SingleViewModal singleView={singleView} setSingleView={setSingleView}>
+        <ViewContact
+          singleView={singleView}
+          setSingleView={setSingleView}
+          selectedContact={selectedContact}
+          users={users}
+          getAllcontacts={getAllcontacts}
+        />
+      </SingleViewModal>
+    </>
+  );
 }

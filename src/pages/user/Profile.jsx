@@ -16,7 +16,6 @@ import dayjs from 'dayjs';
 function Profile() {
   const { token } = JSON.parse(localStorage.getItem('user'));
   const [profileData, setProfileData] = useState({});
-  console.log(profileData.email);
   const obj = {};
   const handleProfile = async (e) => {
     const { name, value } = e.target;

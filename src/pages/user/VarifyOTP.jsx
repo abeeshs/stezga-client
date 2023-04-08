@@ -37,7 +37,6 @@ function VarifyOTP() {
       }
     } else {
       setError('Please enter OTP');
-      console.log('Enter valid otp');
     }
   };
 

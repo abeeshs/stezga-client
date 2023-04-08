@@ -63,7 +63,7 @@ function Deals() {
   const [columns, setColumns] = useState(initialColumns);
   const getAllDeals = async () => {
     const response = await dealService.getAllDealService();
-    console.log(response);
+  
     if (response) {
       response.map((item) => {
         if (item.deal_stage === 'APPOINTMENT SCHEDULED') {

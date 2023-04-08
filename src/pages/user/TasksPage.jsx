@@ -37,7 +37,6 @@ function TasksPage() {
     }
     // get user data to display in input field
     const userData = await userService.viwAllusers(token);
-    console.log(userData);
     if (userData?.status === 'Success') {
       const arrObj = userData.users.map((item) => {
         return {

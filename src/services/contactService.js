@@ -14,7 +14,6 @@ export const getAllContact = async () => {
 
     return res.data;
   } catch (error) {
-    console.log(error);
     if (error.response.data.message === 'User Blocked') {
       localStorage.removeItem('user');
     }

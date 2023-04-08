@@ -19,7 +19,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as contactService from '../../../services/contactService';
 
 function RightSideBar({ getAllContacts, users }) {
-  console.log(users);
+  
   // schema for create contact form
   const schema = yup.object().shape({
     firstname: yup
